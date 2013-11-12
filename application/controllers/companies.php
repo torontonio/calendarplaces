@@ -20,6 +20,11 @@ class Controllers_Companies extends Abstract_Controller
 		$this->setLayout($this->layout);
 	}
 	
+	public function indexAction()
+	{
+	
+	}
+	
 	public function update_company($request)
 	{
 		$this->$company_name = $request->$company_name;

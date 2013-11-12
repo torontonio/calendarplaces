@@ -13,6 +13,7 @@ class Controllers_Index extends Abstract_Controller
 		$this->config = $config;
 		$this->setLayout($this->layout);
 	}
+	
 	public function indexAction()
 	{
 		
@@ -22,6 +23,7 @@ class Controllers_Index extends Abstract_Controller
 	{
 		
 	}
+	
 	public function contactAction()
 	{
 	
