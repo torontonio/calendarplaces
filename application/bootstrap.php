@@ -27,8 +27,8 @@ class Bootstrap
 	
 	public function dispatch()
 	{
-		$controllerName= "Controllers_".ucfirst($this->request['controller']);
-		$actionName=$this->request['action']."Action";
+		$controllerName = "Controllers_".ucfirst($this->request['controller']);
+		$actionName = $this->request['action']."Action";
 		
 		$this->controller = new $controllerName($this->layoutparams['request'],
 										  $this->layoutparams['config']);
