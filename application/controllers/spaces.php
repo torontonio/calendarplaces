@@ -6,10 +6,21 @@ class Controllers_Spaces extends Abstract_Controller
 	
 	protected $id_space;
 	protected $space;
+	
+
+	Protected $viewParams = array();
+	Protected $layout = 'backend';
+	
 
 	public function __construct()
 	{
 		$this->space= new Model_Spaces();
+	}
+	
+	
+	public function indexAction()
+	{
+	
 	}
 	
 	/**
@@ -34,28 +45,6 @@ class Controllers_Spaces extends Abstract_Controller
 	{
 	
 	}
-	
-	public function selectSpaceAction($id_space)
-	{
-	
-	}
-	
-	public function selectAllSpacesAction()
-	{
-	
-	}
-	
-	// COMMENTS
-	public function addCommentsAction()
-	{
-		
-	}
-	
-	public function deleteCommentsAction(){
-		
-	}
-	
-	// TYPE SPACES?
 	
 	
 	
@@ -89,6 +78,7 @@ class Controllers_Spaces extends Abstract_Controller
 		$this->space = $space;
 	}
 
+	
 	
 	
 	
