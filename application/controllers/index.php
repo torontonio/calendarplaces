@@ -34,10 +34,14 @@ class Controllers_Index extends Abstract_Controller
 	
 	public function __destruct()
 	{
-		return getView($this->request['action'], 
-				$this->request['controller'], 
-				$this->viewParams, 
+		$content=getView($this->request['action'],
+				$this->request['controller'],
+				$this->viewParams,
 				$this->config);
+		$this->layoutparams=array('content'=>$content);
+		echo renderLayout($this->getLayout(),
+					 $this->request['controller'],
+					 $this->layoutparams);
 	}
 	
 }

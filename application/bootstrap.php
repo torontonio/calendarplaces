@@ -32,15 +32,17 @@ class Bootstrap
 		
 		$this->controller = new $controllerName($this->layoutparams['request'],
 										  $this->layoutparams['config']);
-		$this->controller->$actionName();
+		$content=$this->controller->$actionName();
+		
 	}
 	
-	public function __destruct()
-	{
-		echo renderLayout($this->controller->getLayout(), 
-						  $this->request['controller'],
-						  $this->layoutparams);
-	}
+// 	public function __destruct()
+// 	{
+// 		echo $this->controller->getLayout();
+// 		 renderLayout($this->controller->getLayout(), 
+// 						  $this->request['controller'],
+// 						  $this->layoutparams);
+// 	}
 }
 
 

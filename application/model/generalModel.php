@@ -37,11 +37,15 @@ function readConfig($filename, $section)
 
 function getView($action = 'index', $controller = 'index', $viewParams, $config)
 {
+	ob_start();
 	if(isset($viewParams['data']))
 		$data=$viewParams['data'];
 	//include_once ("../views/radioForm.php");
 	include_once($_SERVER['DOCUMENT_ROOT'].$config['views']."/".
 				$controller."/".$action.".phtml");
+	$content=ob_get_contents();
+	ob_end_clean();
+	return $content;
 }
 
 
@@ -90,13 +94,6 @@ function setLayout($layout, $layoutparams)
 
 function renderLayout($layout, $controller, $layoutparams)
 {
-	ob_start();
-		include_once ("controllers/".$controller.".php");
-		$content=ob_get_flush();
-	ob_end_clean();
-	
-	$layoutparams=array("content"=>$content);
-	
 	ob_start();
 		setLayout($layout, $layoutparams);
 		$layout=ob_get_contents();
