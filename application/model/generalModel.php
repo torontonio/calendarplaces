@@ -19,9 +19,9 @@ function readConfig($filename, $section)
 		{	
 			$config_1=$config[$key];
 			if(isset($array_key[1]))
-				$config_2=$config[$array_key[1]];
+				$config_2 = $config[$array_key[1]];
 			else
-				$config_2=$config_1;	
+				$config_2 = $config_1;	
 			break;
 		}	
 	}
@@ -38,7 +38,7 @@ function readConfig($filename, $section)
 function getView($action = 'index', $controller = 'index', $viewParams, $config)
 {
 	if(isset($viewParams['data']))
-		$data=$viewParams['data'];
+		$data = $viewParams['data'];
 	//include_once ("../views/radioForm.php");
 	include_once($_SERVER['DOCUMENT_ROOT'].$config['views']."/".
 				$controller."/".$action.".phtml");
@@ -81,47 +81,28 @@ function getRequest()
 
 
 
+
 function setLayout($layout, $layoutparams)
 {
-	$content=$layoutparams['content'];
+	$content = $layoutparams['content'];
 	include_once("views/layouts/".$layout.".phtml");
 }
+
 
 
 function renderLayout($layout, $controller, $layoutparams)
 {
 	ob_start();
 		include_once ("controllers/".$controller.".php");
-		$content=ob_get_flush();
+		$content = ob_get_flush();
 	ob_end_clean();
 	
-	$layoutparams=array("content"=>$content);
+	$layoutparams = array("content"=>$content);
 	
 	ob_start();
 		setLayout($layout, $layoutparams);
-		$layout=ob_get_contents();
+		$layout = ob_get_contents();
 	ob_end_clean();
 	
 	return $layout;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
