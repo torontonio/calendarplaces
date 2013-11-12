@@ -9,8 +9,8 @@ class Controllers_Index extends Abstract_Controller
 	
 	public function __construct($request, $config)
 	{
-		$this->request=$request;
-		$this->config=$config;
+		$this->request = $request;
+		$this->config = $config;
 		$this->setLayout($this->layout);
 	}
 	public function indexAction()
