@@ -39,9 +39,9 @@ function getView($action = 'index', $controller = 'index', $viewParams, $config)
 {
 	if(isset($viewParams['data']))
 		$data=$viewParams['data'];
-	include_once ("../views/helpers/radioForm.php");
+	//include_once ("../views/radioForm.php");
 	include_once($_SERVER['DOCUMENT_ROOT'].$config['views']."/".
-				$controller."/".$action.".php");
+				$controller."/".$action.".phtml");
 }
 
 
@@ -84,14 +84,14 @@ function getRequest()
 function setLayout($layout, $layoutparams)
 {
 	$content=$layoutparams['content'];
-	include_once("../views/layouts/".$layout.".phtml");
+	include_once("views/layouts/".$layout.".phtml");
 }
 
 
 function renderLayout($layout, $controller, $layoutparams)
 {
 	ob_start();
-		include_once ("../controllers/".$controller.".php");
+		include_once ("controllers/".$controller.".php");
 		$content=ob_get_flush();
 	ob_end_clean();
 	
