@@ -6,25 +6,31 @@ class Bootstrap
 	protected $layoutparams;
 	protected $controller;
 	protected $sessionId;
+	protected $config;
 	
 	public function __construct($configFile)
 	{
 		require_once ("../application/model/generalModel.php");
-		$config=readConfig($configFile, APPLICATION_ENV);
-		
+
+		$this->config=readConfig($configFile, APPLICATION_ENV);
 		$this->configApp();
-		
-		$this->layoutparams=array(
-								"request"=>$this->request,
-								"config"=>$config);		
+
 	}
 	
 	public function configApp()
 	{
 		$this->_request();
 		$this->_session();
+		$this->_layoutparams();
 		//$this->routes();
 		//$this->db();
+	}
+	
+	protected function _layoutparams()
+	{
+		$this->layoutparams=array(
+				"request"=>$this->request,
+				"config"=>$this->config);
 	}
 	
 	public function run()
