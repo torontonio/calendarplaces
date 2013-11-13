@@ -16,3 +16,5 @@ require_once ("../application/autoload.php");
 $bootstrap = new Bootstrap($configFile);
 $bootstrap->run();
 
+
+
