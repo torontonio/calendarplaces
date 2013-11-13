@@ -1,6 +1,6 @@
 <?php
 
-class Model_Spaces
+class Model_spaces_spacesMysql
 {
 	protected $id_space;
 	protected $name;
@@ -13,7 +13,10 @@ class Model_Spaces
 	
 	public function __construct()
 	{
-		$adaptername = __CLASS__."_".$this->
+		$adaptername = __CLASS__."_".$this->model.$_SESSION['register']['adapter'];
+		
+		$this->adapter = new $adaptername();
+				
 	}
 	
 	public function __destruct()

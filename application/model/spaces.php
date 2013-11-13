@@ -1,5 +1,9 @@
 <?php
 
+class Model_Spaces
+{
+
+
 
 function readSpace($id, $config)
 {
@@ -11,7 +15,7 @@ function readSpace($id, $config)
 			return $spaces;
 			break;
 		case 'mysql':
-			include_once('spacesMysql.php');
+			include_once('spaces/spacesMysql.php');
 			$spaces = select($id,$config);
 			return $spaces;
 			break;
@@ -34,7 +38,7 @@ function update($space, $id, $config)
 			return;
 			break;
 		case 'mysql':
-			include_once('spacesMysql.php');
+			include_once('spaces/spacesMysql.php');
 			$spaces = updateSpace($id, $space, $config);
 			return $spaces;
 			break;
@@ -59,7 +63,7 @@ function readSpaces($config)
 			return $spaces;
 		break;
 		case 'mysql':
-			include_once('spacesMysql.php');
+			include_once('spaces/spacesMysql.php');
 			$spaces = selectAll($config);
 			return $spaces;
 		break;
@@ -72,7 +76,7 @@ function readSpaces($config)
 	}
 }
 
-// function delete($id, $config)
+}
 
 
 

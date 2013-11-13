@@ -10,7 +10,7 @@ class Model_Login_LoginMysql extends Abstract_Mysql
 					  password='".$credentials."'";
 		echo $sql;
 		
-		$this->linkread
+		$this->linkread;
 		
 	}
 	
