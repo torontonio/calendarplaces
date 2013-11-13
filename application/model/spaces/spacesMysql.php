@@ -13,7 +13,7 @@ class Model_Spaces
 	
 	public function __construct()
 	{
-		
+		$adaptername = __CLASS__."_".$this->
 	}
 	
 	public function __destruct()
