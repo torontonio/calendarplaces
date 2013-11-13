@@ -41,7 +41,6 @@ function getView($action = 'index', $controller = 'index', $viewParams, $config)
 	if(isset($viewParams['data']))
 		$data=$viewParams['data'];
 	//include_once ("../views/radioForm.php");
-	echo $config['views']."/";
 	include_once($config['views']."/".$controller."/".$action.".phtml");
 	$content=ob_get_contents();
 	ob_end_clean();
@@ -108,7 +107,29 @@ function renderLayout($layout, $controller, $layoutparams)
 
 
 
+function getLinkRead($config)
+{
+	$linkRead=mysqli_connect($config['database.serverr'],
+			$config['database.usernamer'],
+			$config['database.passwordr']
+	);
 
+	mysqli_select_db($linkRead,$config['database.dbr'] );
+
+	return $linkRead;
+}
+
+function getLinkWrite($config)
+{
+	$linkRead=mysqli_connect($config['database.serverw'],
+			$config['database.usernamew'],
+			$config['database.passwordw']
+	);
+
+	mysqli_select_db($linkRead,$config['database.dbw'] );
+
+	return $linkRead;
+}
 
 
 

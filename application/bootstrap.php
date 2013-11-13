@@ -21,11 +21,22 @@ class Bootstrap
 	{
 		$this->_request();
 		$this->_session();
+		$this->_register();
 		$this->_layoutparams();
 		//$this->routes();
-		//$this->db();
+		$this->_db();
 	}
 	
+	protected function _register()
+	{
+		$this->setRegisterVar('adapter', $this->config['adapter']);
+	}
+	
+	
+	protected function setRegisterVar($name, $value)
+	{
+		$_SESSION['register'][$name]=$value;
+	}
 	protected function _layoutparams()
 	{
 		$this->layoutparams=array(
@@ -59,6 +70,12 @@ class Bootstrap
 										  $this->layoutparams['config']);
 		$content=$this->controller->$actionName();
 		
+	}
+	
+	public function _db()
+	{
+		$this->setRegisterVar('linkread', getLinkRead($this->config));
+		$this->setRegisterVar('linkwrite', getLinkWrite($this->config));
 	}
 	
 // 	public function __destruct()
